@@ -67,4 +67,12 @@ variable "vmdns" {
   default = []
    }
 
+variable "tag_category" {
+    description = "Used to name a tags' category on vCenter" 
+    default = ""
+}
 
+variable "tag" {
+    description = "Used to name a tag on vCenter"
+    default = ""
+}

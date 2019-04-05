@@ -17,6 +17,23 @@ data "vsphere_virtual_machine" "template" {
   name          = "${var.vmtemp}"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
+
+resource "vsphere_tag_category" "category" {
+  name        = "${var.tag_category}"
+  cardinality = "MULTIPLE"
+  description = "Managed by Terraform"
+
+  associable_types = [
+    "VirtualMachine",
+  ]
+}
+
+resource "vsphere_tag" "tag" {
+  name        = "${var.tag}"
+  category_id = "${vsphere_tag_category.category.id}"
+  description = "Managed by Terraform"
+}
+
 // Creating Linux VM with no Data Disk. Note: This is the default option!!
 resource "vsphere_virtual_machine" "LinuxVM" {
   count            = "${ var.data_disk == "false" ? var.instances : 0}"
@@ -58,6 +75,9 @@ resource "vsphere_virtual_machine" "LinuxVM" {
       ipv4_gateway    = "${var.vmgateway}"
     }
   }
+
+  tags = ["${vsphere_tag.tag.id}"]
+
 }
 // Creating Linux VM with Data Disk.
 resource "vsphere_virtual_machine" "LinuxVM-withDataDisk" {
@@ -105,4 +125,7 @@ resource "vsphere_virtual_machine" "LinuxVM-withDataDisk" {
       ipv4_gateway    = "${var.vmgateway}"
     }
   }
+
+  tags = ["${vsphere_tag.tag.id}"]
+  
 }
