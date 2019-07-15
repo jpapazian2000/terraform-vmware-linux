@@ -18,7 +18,7 @@ You can use this module in two different ways:
 ### VM without Data Disk 
 
 ```hcl
-module "vmware_linux_web_vm" {
+module "vmware_linux_vm" {
   source            = "github.com/nehrman/terraform-vmware-linux"
   vmtemp            = "linux-template"
   instances         = "1"
@@ -41,7 +41,7 @@ module "vmware_linux_web_vm" {
 ### VM with Data Disk 
 
 ```hcl
-module "vmware_linux_web_vm" {
+module "vmware_linux_vm" {
   source            = "github.com/nehrman/terraform-vmware-linux"
   vmtemp            = "linux-template"
   instances         = "1"
