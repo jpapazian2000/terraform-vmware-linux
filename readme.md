@@ -29,12 +29,12 @@ module "vmware_linux_web_vm" {
   data_disk_size_gb = "20"
   dc                = "datacenter"
   ds                = "fc-datastore-1"
-  ipaddress         = "10.0.1.25"
+  ipaddress         = ["10.0.1.25"]
   ipv4submask       = "255.255.255.0"
   vmgateway         = "10.0.1.254"
-  vmdns             = "10.0.1.250"
-  tag_category      = "${var.tag_category_web}"
-  tag               = "${var.tag_web}"
+  vmdns             = ["10.0.1.250"]
+  tag_category      = "web"
+  tag               = "web"
 }
 ```
 
@@ -52,12 +52,12 @@ module "vmware_linux_web_vm" {
   data_disk_size_gb = "20"
   dc                = "datacenter"
   ds                = "fc-datastore-1"
-  ipaddress         = "10.0.1.25"
+  ipaddress         = ["10.0.1.25"]
   ipv4submask       = "255.255.255.0"
   vmgateway         = "10.0.1.254"
-  vmdns             = "10.0.1.250"
-  tag_category      = "${var.tag_category_web}"
-  tag               = "${var.tag_web}"
+  vmdns             = ["10.0.1.250"]
+  tag_category      = "web"
+  tag               = "web"
 }
 ```
 
