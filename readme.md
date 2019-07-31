@@ -64,6 +64,6 @@ module "vmware_linux_vm" {
 ## Authors
 
 * **Nicolas Ehrman** - *Initial work* - [Hashicorp](https://www.hashicorp.com)
-
+ 
 
 
