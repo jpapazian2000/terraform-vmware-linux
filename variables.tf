@@ -24,11 +24,11 @@ variable "instances" {
 }
 variable "cpu_number" {
   description = "number of CPU (core per CPU) for the VM"
-  default = 2
+  default = 1
 }
 variable "ram_size" {
   description = "VM RAM size in megabytes"
-  default = 4096
+  default = 1024
 }
 variable "vlan" {
   description = "(Required)VLAN name where the VM should be deployed"
