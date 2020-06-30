@@ -14,7 +14,7 @@ variable "data_disk_size_gb" {
   default     = 20
 }
 variable "data_disk" {
-  type        = "string"
+  type        = string
   description = "Set to true to add a datadisk."
   default     = "false"
 }
@@ -39,7 +39,7 @@ variable "ipv4submask" {
 }
 variable "ipaddress" {
   description = "host(VM) IP address in list format, support more than one IP. Should correspond to number of instances"
-  type    = "list"
+  type    = list
   default = [""]
 }
 variable "vmdomain" {
@@ -63,7 +63,7 @@ variable "vmgateway" {
   default = ""
 }
 variable "vmdns" {
-  type = "list"
+  type = list
   default = []
    }
 
