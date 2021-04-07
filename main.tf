@@ -62,6 +62,7 @@ resource "vsphere_virtual_machine" "LinuxVM" {
     size             = data.vsphere_virtual_machine.template.disks.0.size
     eagerly_scrub    = data.vsphere_virtual_machine.template.disks.0.eagerly_scrub
     thin_provisioned = data.vsphere_virtual_machine.template.disks.0.thin_provisioned
+    storage_policy_id = data.vsphere_storage_policy.storage_policy.id
   }
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id
@@ -98,6 +99,7 @@ resource "vsphere_virtual_machine" "LinuxVM-withDataDisk" {
   memory    = var.ram_size
   guest_id  = data.vsphere_virtual_machine.template.guest_id
   scsi_type = data.vsphere_virtual_machine.template.scsi_type
+  storage_policy_id = data.vsphere_storage_policy.storage_policy.id
   network_interface {
     network_id   = data.vsphere_network.network.id
     adapter_type = data.vsphere_virtual_machine.template.network_interface_types[0]
@@ -107,11 +109,13 @@ resource "vsphere_virtual_machine" "LinuxVM-withDataDisk" {
     size             = data.vsphere_virtual_machine.template.disks.0.size
     eagerly_scrub    = data.vsphere_virtual_machine.template.disks.0.eagerly_scrub
     thin_provisioned = data.vsphere_virtual_machine.template.disks.0.thin_provisioned
+    storage_policy_id = data.vsphere_storage_policy.storage_policy.id
   }
   disk {
     label            = "disk1"
     size             = var.data_disk_size_gb
     unit_number = 1
+    storage_policy_id = data.vsphere_storage_policy.storage_policy.id 
   }
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id
