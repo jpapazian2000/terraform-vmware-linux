@@ -10,7 +10,7 @@ variable "vmtemp" {
   description = "Name of the template available in the vSphere"
 }
 
-variable "storage_policy" {
+variable "storage_policy_name" {
   description = "Name of the Storage Policy used in the vSphere"
 }
 variable "data_disk_size_gb" {
