@@ -9,6 +9,10 @@ variable "vmnamesuffix" {
 variable "vmtemp" {
   description = "Name of the template available in the vSphere"
 }
+
+variable "storage_policy" {
+  description = "Name of the Storage Policy used in the vSphere"
+}
 variable "data_disk_size_gb" {
   description = "Storage data disk size size"
   default     = 20

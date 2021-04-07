@@ -18,6 +18,10 @@ data "vsphere_virtual_machine" "template" {
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
+data "vsphere_storage_policy" "storage_policy" {
+  name          = var.storage_policy_name
+}
+
 resource "vsphere_tag_category" "category" {
   name        = var.tag_category
   cardinality = "MULTIPLE"
@@ -48,6 +52,7 @@ resource "vsphere_virtual_machine" "LinuxVM" {
   memory    = var.ram_size
   guest_id  = data.vsphere_virtual_machine.template.guest_id
   scsi_type = data.vsphere_virtual_machine.template.scsi_type
+  storage_policy_id = data.vsphere_storage_policy.storage_policy.id
   network_interface {
     network_id   = data.vsphere_network.network.id
     adapter_type = data.vsphere_virtual_machine.template.network_interface_types[0]
