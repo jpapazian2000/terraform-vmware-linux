@@ -1,0 +1,8 @@
+#cloud-config
+# Cloud-init supports the creation of simple partition tables and file systems
+# on devices.
+# Data disks definitions for Microsoft Azure
+# ------------------------------------------
+      runcmd:
+        - systemctl start tomcat
+        - systemclt enable tomcat

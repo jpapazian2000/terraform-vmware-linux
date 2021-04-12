@@ -134,7 +134,10 @@ resource "vsphere_virtual_machine" "LinuxVM-withDataDisk" {
       ipv4_gateway    = var.vmgateway
     }
   }
-
+  extra_config = {
+    "guestinfo.userdata"          = base64encode(file("${path.module}/templates/userdata.yaml"))
+    "guestinfo.userdata.encoding" = "base64"
+  }
   tags = [vsphere_tag.tag.id]
   
 }
