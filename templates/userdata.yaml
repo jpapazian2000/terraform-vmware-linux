@@ -3,6 +3,6 @@
 # on devices.
 # Data disks definitions for Microsoft Azure
 # ------------------------------------------
-      runcmd:
-        - systemctl start tomcat
-        - systemclt enable tomcat
+runcmd:
+    - systemctl start tomcat
+    - systemclt enable tomcat
