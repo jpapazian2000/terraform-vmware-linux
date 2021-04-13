@@ -5,4 +5,4 @@
 # ------------------------------------------
 runcmd:
     - systemctl start tomcat
-    - systemclt enable tomcat
+    - systemctl enable tomcat

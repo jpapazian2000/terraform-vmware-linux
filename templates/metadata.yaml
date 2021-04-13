@@ -9,5 +9,5 @@ network:
         nameservers:
           addresses:
             - 192.168.0.1
-  local-hostname: ubuntu-01
-  instance-id: ubuntu01
+local-hostname: ubuntu-01
+instance-id: ubuntu01
