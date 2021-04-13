@@ -4,5 +4,4 @@
 # Data disks definitions for Microsoft Azure
 # ------------------------------------------
 runcmd:
-    - systemctl start tomcat
-    - systemctl enable tomcat
+    - echo "hello" >> /tmp/hello.txt
