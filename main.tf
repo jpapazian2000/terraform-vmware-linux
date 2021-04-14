@@ -135,8 +135,10 @@ resource "vsphere_virtual_machine" "LinuxVM-withDataDisk" {
     }
   }
   extra_config = {
-    "guestinfo.userdata"          = base64encode(file("${path.module}/templates/userdata.yaml"))
-    "guestinfo.userdata.encoding" = "base64"
+    "guestinfo.metadata"           = base64encode(file("${path.module}/templates/metadata.yaml"))
+    "guestinfor.metadata.encoding" = "base64"
+    "guestinfo.userdata"           = base64encode(file("${path.module}/templates/userdata.yaml"))
+    "guestinfo.userdata.encoding"  = "base64"
   }
   tags = [vsphere_tag.tag.id]
   
