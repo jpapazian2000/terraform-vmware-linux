@@ -128,18 +128,18 @@ resource "vsphere_virtual_machine" "LinuxVM-withDataDisk" {
 
       network_interface {
         ipv4_address = element(var.ipaddress, count.index)
-        ipv4_netmask = var.ipv4submask      
+        ipv4_netmask = var.ipv4submask
         }
       dns_server_list = var.vmdns
       ipv4_gateway    = var.vmgateway
     }
   }
-  #extra_config = {
-  #  "guestinfo.metadata"          = base64encode(file("${path.module}/templates/metadata.yaml"))
-  #  "guestinfo.metadata.encoding" = "base64"
-  #  "guestinfo.userdata"          = base64encode(file("${path.module}/templates/userdata.yaml"))
-  #  "guestinfo.userdata.encoding" = "base64"
-  #}
+  extra_config = {
+    "guestinfo.metadata"          = base64encode(file("${path.module}/templates/metadata.yaml"))
+    "guestinfo.metadata.encoding" = "base64"
+    "guestinfo.userdata"          = base64encode(file("${path.module}/templates/userdata.yaml"))
+    "guestinfo.userdata.encoding" = "base64"
+  }
   tags = [vsphere_tag.tag.id]
   
 }
